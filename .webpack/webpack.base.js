@@ -99,15 +99,15 @@ module.exports = (env, argv, { SRC_DIR, ENTRY }) => {
         ...(isProdBuild
           ? []
           : [
-              {
-                test: /\.[jt]sx?$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-                options: {
-                  plugins: isProdBuild ? [] : ['react-refresh/babel'],
-                },
+            {
+              test: /\.[jt]sx?$/,
+              exclude: /node_modules/,
+              loader: 'babel-loader',
+              options: {
+                plugins: isProdBuild ? [] : ['react-refresh/babel'],
               },
-            ]),
+            },
+          ]),
         {
           test: /\.svg?$/,
           oneOf: [
@@ -197,7 +197,7 @@ module.exports = (env, argv, { SRC_DIR, ENTRY }) => {
         SRC_DIR,
       ],
       // Attempt to resolve these extensions in order.
-      extensions: ['.js', '.jsx', '.json', '.ts', '.tsx', '*'],
+      extensions: ['.js', '.jsx', '.json', '.ts', '.tsx', '.*'],
       // symlinked resources are resolved to their real path, not their symlinked location
       symlinks: true,
       fallback: {

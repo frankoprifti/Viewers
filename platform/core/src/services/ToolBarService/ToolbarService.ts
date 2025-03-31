@@ -45,9 +45,9 @@ export default class ToolbarService extends PubSubService {
     // the buttons in the toolbar, grouped by section, with their ids
     buttonSections: Record<string, string[]>;
   } = {
-    buttons: {},
-    buttonSections: {},
-  };
+      buttons: {},
+      buttonSections: {},
+    };
 
   _commandsManager: CommandsManager;
   _extensionManager: ExtensionManager;
@@ -232,6 +232,7 @@ export default class ToolbarService extends PubSubService {
    */
   public refreshToolbarState(refreshProps) {
     const buttons = this.state.buttons;
+    console.log(buttons, 'buttons');
     const evaluationResults = new Map();
 
     const evaluateButtonProps = (button, props, refreshProps) => {
@@ -239,6 +240,7 @@ export default class ToolbarService extends PubSubService {
         const { disabled, disabledText, className, isActive } = evaluationResults.get(button.id);
         return { ...props, disabled, disabledText, className, isActive };
       } else {
+        console.log(props, 'propss');
         const evaluated = props.evaluate?.({ ...refreshProps, button });
         const updatedProps = {
           ...props,

@@ -3,6 +3,7 @@ node_modules
 .cursor/
 
 # Output
+dist-electron
 build
 dist
 docs/_book
@@ -11,6 +12,7 @@ junit.xml
 coverage/
 .docz/
 .yarn/
+.yarnrc.yml
 .nx/
 addOns/yarn.lock
 

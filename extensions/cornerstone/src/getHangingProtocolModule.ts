@@ -6,6 +6,7 @@ import { only3D } from './hps/only3D';
 import { primary3D } from './hps/primary3D';
 import { primaryAxial } from './hps/primaryAxial';
 import { frameView } from './hps/frameView';
+import { oct } from './hps/oct';
 
 function getHangingProtocolModule() {
   return [
@@ -28,6 +29,10 @@ function getHangingProtocolModule() {
     {
       name: primaryAxial.id,
       protocol: primaryAxial,
+    },
+    {
+      name: oct.id,
+      protocol: oct,
     },
     {
       name: only3D.id,

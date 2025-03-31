@@ -1,6 +1,7 @@
 {
   "name": "ohif-monorepo-root",
   "private": true,
+  "version": "0.0.1",
   "workspaces": {
     "packages": [
       "platform/app",
@@ -11,7 +12,8 @@
       "platform/i18n",
       "extensions/*",
       "modes/*",
-      "addOns/externals/*"
+      "addOns/externals/*",
+      "electron"
     ],
     "nohoist": [
       "**/html-minifier-terser"
@@ -68,7 +70,9 @@
     "lerna:cache": "./netlify-lerna-cache.sh",
     "lerna:restore": "./netlify-lerna-restore.sh",
     "lerna:customVersion": "node version.mjs",
-    "link-list": "npm ls --depth=0 --link=true"
+    "link-list": "npm ls --depth=0 --link=true",
+    "electron": "electron-builder",
+    "electron:dev": "cross-env NODE_ENV=development electron electron.js"
   },
   "dependencies": {
     "execa": "^8.0.1"
@@ -93,8 +97,11 @@
     "@babel/preset-env": "7.24.7",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.13.0",
-    "prettier": "^3.3.3",
+    "electron": "^35.1.2",
+    "electron-builder": "^24.13.0",
+    "electron-is-dev": "^3.0.1",
     "patch-package": "^8.0.0",
+    "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "0.6.9"
   },
   "husky": {
@@ -119,5 +126,37 @@
     "sharp": "^0.32.6",
     "rollup": "2.79.2",
     "body-parser": "1.20.3"
+  },
+  "build": {
+    "appId": "org.ohif.viewer",
+    "productName": "OHIF Viewer",
+    "asar": true,
+    "files": [
+      "electron.js",
+      "preload.js",
+      "platform/app/dist/**/*"
+    ],
+    "extraMetadata": {
+      "main": "electron.js"
+    },
+    "directories": {
+      "buildResources": "resources",
+      "output": "dist-electron"
+    },
+    "mac": {
+      "category": "public.app-category.medical"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Medical"
+    }
   }
 }

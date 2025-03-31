@@ -78,6 +78,34 @@ module.exports = (env, argv) => {
         // Hoisted Yarn Workspace Modules
         path.resolve(__dirname, '../../../node_modules'),
         SRC_DIR,
+        path.resolve(
+          __dirname,
+          '/Users/user/Documents/Programming/React Projects/Viewers/custom-modes/radiology/node_modules'
+        ),
+        path.resolve(
+          __dirname,
+          '/Users/user/Documents/Programming/React Projects/Viewers/custom-extensions/radiology/node_modules'
+        ),
+        path.resolve(
+          __dirname,
+          '/Users/user/Documents/Programming/React Projects/Viewers/custom-modes/MSK/node_modules'
+        ),
+        path.resolve(
+          __dirname,
+          '/Users/user/Documents/Programming/React Projects/Viewers/custom-modes/Ophthalmology/node_modules'
+        ),
+        path.resolve(
+          __dirname,
+          '/Users/user/Documents/Programming/React Projects/Viewers/custom-modes/Ophthalmology/node_modules'
+        ),
+        path.resolve(
+          __dirname,
+          '/Users/user/Documents/Programming/React Projects/Viewers/custom-modes/MSK/node_modules'
+        ),
+        path.resolve(
+          __dirname,
+          '/Users/user/Documents/Programming/React Projects/Viewers/custom-modes/Radiology/node_modules'
+        ),
       ],
     },
     plugins: [
